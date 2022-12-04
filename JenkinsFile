@@ -1,7 +1,7 @@
 pipeline {
 agent any
 environment {
-PROJECT_VERSION=project_version()
+PROJECT_VERSION = project_version()
 }
 stages {
    stage('Git checkout') {
@@ -19,7 +19,7 @@ stages {
    stage ('Docker build') {
    steps {
    sh '''
-   docker build -t myapp:2.0.30 .
+   docker build -t myapp:$PROJECT_VERSION .
    '''
    }
    }
