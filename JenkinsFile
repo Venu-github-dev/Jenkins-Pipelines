@@ -28,7 +28,7 @@ stages {
    steps {
    sh '''
    docker login -u venudocker22 -p Venu1994@@
-   docker tag myapp:2.0.30 venudocker22/testapp:$PROJECT_VERSION
+   docker tag myapp:$PROJECT_VERSION venudocker22/testapp:$PROJECT_VERSION
    docker push venudocker22/testapp:$PROJECT_VERSION
    '''
    }
