@@ -1,7 +1,7 @@
 pipeline {
 agent any
 environment {
-PROJECT_VERSION=project_version()
+PROJECT-VERSION=project_version()
 }
 stages {
    stage('Git checkout') {
@@ -19,7 +19,7 @@ stages {
    stage ('Docker build') {
    steps {
    sh '''
-   docker build -t myapp:$PROJECT_VERSION .
+   docker build -t myapp:$PROJECT-VERSION.
    '''
    }
    }
@@ -28,8 +28,8 @@ stages {
    steps {
    sh '''
    docker login -u venudocker22 -p Venu1994@@
-   docker tag myapp:2.0.30 venudocker22/testapp:$PROJECT_VERSION
-   docker push venudocker22/testapp:$PROJECT_VERSION
+   docker tag myapp:2.0.30 venudocker22/testapp:$PROJECT-VERSION
+   docker push venudocker22/testapp:$PROJECT-VERSION
    '''
    }
    }
