@@ -1,7 +1,7 @@
 pipeline {
 agent any
 environment {
-PROJECT_VERSION = project_version()
+PROJECT_VERSION=project_version()
 }
 stages {
    stage('Git checkout') {
