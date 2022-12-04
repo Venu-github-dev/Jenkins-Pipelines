@@ -1,14 +1,14 @@
 pipeline {
 agent any
 environment {
-PROJECT_VERSION=project_version()
-}
+   PROJECT_VERSION=project_version()
+ }
 stages {
-   stage('Git checkout') {
-    steps {
-    git credentialsId: 'github_credentials', url: 'https://github.com/Venu-github-dev/myapp.git'
-    }
-    }
+   //stage('Git checkout') {
+  //  steps {
+  //  git credentialsId: 'github_credentials', url: 'https://github.com/Venu-github-dev/myapp.git'
+  //  }
+  //  }
 
    stage('maven build') {
    steps {
@@ -36,7 +36,6 @@ stages {
 }
 }
 
-
 def project_version() {
-   return sh(returnStdout: true, script:"cat pom.xml | grep \"version\" | head -1 | awk \'{print \$1}\' | sed \"s/<version>//\" | sed \"s/<.*//\"")
-}
+   return sh(returnStdout: true, script:"cat pom.xml | grep \"version\" | head -1 | awk \'{print \$1}\' |  sed \"s/<version>//\" | sed \"s/<.*//\"")
+ }
